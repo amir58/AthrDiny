@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PaintingActivity">
+
+    <com.amirmohammed.athrdiny.PaintView
+        android:id="@+id/painting_image"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/paint6" />
+
+    <com.thebluealliance.spectrum.SpectrumPalette
+        android:layout_width="match_parent"
+        app:spectrum_autoPadding="true"
+        app:spectrum_outlineWidth="2dp"
+        app:spectrum_colors="@array/colors"
+        android:id="@+id/painting_colors"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
