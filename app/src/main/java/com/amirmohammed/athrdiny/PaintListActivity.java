@@ -17,7 +17,7 @@ public class PaintListActivity extends AppCompatActivity {
 
         List<Integer> images = new ArrayList<>();
         images.add(R.drawable.test);
-        images.add(R.drawable.paint2);
+        images.add(R.drawable.test2);
         images.add(R.drawable.paint3);
         images.add(R.drawable.paint4);
         images.add(R.drawable.paint5);
