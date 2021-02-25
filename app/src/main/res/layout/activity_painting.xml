@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:scaleType="fitXY"
-        android:src="@drawable/paint6" />
+         />
 
     <com.thebluealliance.spectrum.SpectrumPalette
         android:layout_width="match_parent"

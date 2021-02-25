@@ -25,6 +25,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
+
+
+
+
+
+
+
     public void openPaint(View view) {
         startActivity(new Intent(this, PaintListActivity.class));
     }

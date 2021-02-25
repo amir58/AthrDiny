@@ -29,38 +29,38 @@ public class PaintView extends View {
         super(context, attrs);
     }
 
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
-
-        Bitmap srcBitmap = BitmapFactory.decodeResource(getResources(), image);
-
-        bitmap = Bitmap.createScaledBitmap(srcBitmap, w, h, false);
-
-    }
-
 //    @Override
 //    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 //        super.onSizeChanged(w, h, oldw, oldh);
 //
-//        if (bitmap == null) {
-//            Bitmap srcBitmap = BitmapFactory.decodeResource(getResources(), image);
-//            bitmap = Bitmap.createScaledBitmap(srcBitmap, w, h, false);
+//        Bitmap srcBitmap = BitmapFactory.decodeResource(getResources(), image);
 //
-//            for (int i = 0; i < bitmap.getWidth(); i++) {
-//                for (int j = 0; j < bitmap.getHeight(); j++) {
-//                    int alpha = 255 - brightness(bitmap.getPixel(i, j));
-//
-//                    if (alpha < 200) {
-//                        bitmap.setPixel(i,j,Color.WHITE);
-//                    } else {
-//                        bitmap.setPixel(i, j, Color.BLACK);
-//                    }
-//                }
-//            }
-//        }
+//        bitmap = Bitmap.createScaledBitmap(srcBitmap, w, h, false);
 //
 //    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+
+        if (bitmap == null) {
+            Bitmap srcBitmap = BitmapFactory.decodeResource(getResources(), image);
+            bitmap = Bitmap.createScaledBitmap(srcBitmap, w, h, false);
+
+            for (int i = 0; i < bitmap.getWidth(); i++) {
+                for (int j = 0; j < bitmap.getHeight(); j++) {
+                    int alpha = 255 - brightness(bitmap.getPixel(i, j));
+
+                    if (alpha < 200) {
+                        bitmap.setPixel(i,j,Color.WHITE);
+                    } else {
+                        bitmap.setPixel(i, j, Color.BLACK);
+                    }
+                }
+            }
+        }
+
+    }
 
     private int brightness(int color) {
         return (color >> 16) & 0xff;
@@ -78,22 +78,24 @@ public class PaintView extends View {
         return true;
     }
 
-//    private void paint(int x, int y) {
-//        int targetColor = bitmap.getPixel(x, y);
-//
-//        if (targetColor != Color.BLACK) {
-//            floodFill(bitmap, new Point(x, y), targetColor, color);
-//            invalidate();
-//        }
-//
-//    }
-
     private void paint(int x, int y) {
         int targetColor = bitmap.getPixel(x, y);
 
-        floodFill(bitmap, new Point(x, y), targetColor, color);
-        invalidate();
+        if (targetColor != Color.BLACK) {
+            floodFill(bitmap, new Point(x, y), targetColor, color);
+            invalidate();
+        }
+
     }
+
+
+
+//    private void paint(int x, int y) {
+//        int targetColor = bitmap.getPixel(x, y);
+//
+//        floodFill(bitmap, new Point(x, y), targetColor, color);
+//        invalidate();
+//    }
 
     public static void floodFill(Bitmap bitmap, Point point, int targetColor, int newColor) {
         int width = bitmap.getWidth();

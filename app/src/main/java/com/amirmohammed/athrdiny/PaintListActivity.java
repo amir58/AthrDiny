@@ -16,21 +16,28 @@ public class PaintListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_paint_list);
 
         List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.test);
         images.add(R.drawable.test2);
-        images.add(R.drawable.paint3);
-        images.add(R.drawable.paint4);
-        images.add(R.drawable.paint5);
-        images.add(R.drawable.paint6);
-        images.add(R.drawable.paint7);
-        images.add(R.drawable.paint8);
-        images.add(R.drawable.paint9);
-        images.add(R.drawable.paint10);
-        images.add(R.drawable.paint11);
-        images.add(R.drawable.paint12);
-        images.add(R.drawable.paint13);
-        images.add(R.drawable.paint14);
-        images.add(R.drawable.paint15);
+        images.add(R.drawable.painting1);
+        images.add(R.drawable.painting2);
+        images.add(R.drawable.painting3);
+        images.add(R.drawable.painting4);
+        images.add(R.drawable.painting5);
+        images.add(R.drawable.painting6);
+        images.add(R.drawable.painting7);
+        images.add(R.drawable.painting8);
+        images.add(R.drawable.painting9);
+        images.add(R.drawable.painting10);
+        images.add(R.drawable.painting11);
+        images.add(R.drawable.painting12);
+        images.add(R.drawable.painting13);
+        images.add(R.drawable.painting14);
+        images.add(R.drawable.painting15);
+        images.add(R.drawable.painting16);
+        images.add(R.drawable.painting17);
+        images.add(R.drawable.painting18);
+        images.add(R.drawable.painting19);
+        images.add(R.drawable.painting20);
+
 
         RecyclerView recyclerView = findViewById(R.id.paint_image_recycler_view);
         recyclerView.setAdapter(new PaintImagesAdapter(images));
